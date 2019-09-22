@@ -1,10 +1,10 @@
 import express from 'express'
-// import { process } from 'ipaddr.js';
+import path from 'path'
 
 const app = express()
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello Word</h1>')
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 const PORT = process.env.PORT || 5000
