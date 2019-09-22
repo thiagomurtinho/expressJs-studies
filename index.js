@@ -5,6 +5,13 @@ import members from './Members'
 
 const app = express()
 
+const logger = (req, res, next) => {
+    console.log(`${ req.protocol }://${ req.get('host') }${ req.originalUrl }`)
+    next()
+}
+
+//Init middleware
+app.use(logger)
 
 //Get all members
 app.use('/api/members', (req, res) => res.json(members))
