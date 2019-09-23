@@ -2,19 +2,15 @@ import express from 'express'
 import path from 'path'
 
 import members from './Members'
+import logger from './middleware/logger'
 
 const app = express()
 
-const logger = (req, res, next) => {
-    console.log(`${ req.protocol }://${ req.get('host') }${ req.originalUrl }`)
-    next()
-}
-
-//Init middleware
+// //Init middleware
 app.use(logger)
 
 //Get all members
-app.use('/api/members', (req, res) => res.json(members))
+app.get('/api/members', (req, res) => res.json(members))
 
 //Set static folder
 app.use(express.static(path.join(__dirname, 'public')))
