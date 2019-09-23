@@ -20,4 +20,4 @@ const members = [
 ]
 
 
-module.export = members
+module.exports = members
