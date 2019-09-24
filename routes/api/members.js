@@ -34,7 +34,8 @@ router.post('/', (req, res) => {
     }
 
     members.push(newMember)
-    res.json(members)
+    // res.json(members) // this is correct for API mode
+    res.redirect('/') //Demonstration on layout
 })
 
 //Update a member
